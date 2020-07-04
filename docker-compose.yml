@@ -5,8 +5,8 @@ services:
     image: goofball222/murmur
     container_name: murmur
     ports:
-      - "64999:64999"
-      - "64999:64999/udp"
+      - "33433:33433"
+      - "33433:33433/udp"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./murmur/cert:/opt/murmur/cert

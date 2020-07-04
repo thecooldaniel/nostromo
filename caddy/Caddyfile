@@ -1,9 +1,20 @@
-localhost {
+www.daniel-owens.com,
+www.danielowens.net
+{
 
-  encode zstd gzip
-  templates
-  file_server browse
-  root * /usr/src/site
+  #encode zstd gzip
+  #templates
+  #file_server browse
+  #root * /usr/src/site
+  redir http://www.quakejs.com/play?connect%20quake.daniel-owens.com:27960
+
+}
+
+daniel-owens.com,
+danielowens.net
+{
+
+  redir https://www.daniel-owens.com{uri}
 
 }
 
