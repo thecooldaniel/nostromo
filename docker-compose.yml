@@ -1,53 +1,53 @@
 version: "3.8"
 
 services:
-  # murmur:
-  #   image: goofball222/murmur
-  #   container_name: murmur
-  #   ports:
-  #     - "33433:33433"
-  #     - "33433:33433/udp"
-  #   volumes:
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - ./murmur/cert:/opt/murmur/cert
-  #     - ./murmur/config:/opt/murmur/config
-  #     - ./murmur/data:/opt/murmur/data
-  #     - ./murmur/log:/opt/murmur/log
-  #   environment:
-  #     - TZ=UTC
-  #   networks:
-  #     - murmur
-  #   restart: unless-stopped
+  murmur:
+    image: goofball222/murmur
+    container_name: murmur
+    ports:
+      - "33433:33433"
+      - "33433:33433/udp"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./murmur/cert:/opt/murmur/cert
+      - ./murmur/config:/opt/murmur/config
+      - ./murmur/data:/opt/murmur/data
+      - ./murmur/log:/opt/murmur/log
+    environment:
+      - TZ=UTC
+    networks:
+      - murmur
+    restart: unless-stopped
 
-  # quakejs:
-  #   container_name: quakejs
-  #   ports: 
-  #     - "27960:27960"
-  #     - "27960:27960/udp"
-  #     - "27950:27950"
-  #   volumes:
-  #     - quake_data:/usr/src
-  #   build:
-  #     context: ./quake
-  #     dockerfile: Dockerfile
-  #   networks:
-  #     - quake
-  #   restart: unless-stopped
+  quakejs:
+    container_name: quakejs
+    ports: 
+      - "27960:27960"
+      - "27960:27960/udp"
+      - "27950:27950"
+    volumes:
+      - quake_data:/usr/src
+    build:
+      context: ./quake
+      dockerfile: Dockerfile
+    networks:
+      - quake
+    restart: unless-stopped
       
-  # caddy:
-  #   image: caddy:2-alpine
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - caddy_data:/data
-  #     - caddy_config:/config
-  #   build:
-  #     context: ./caddy
-  #     dockerfile: Dockerfile
-  #   networks:
-  #     - caddy
-  #   restart: unless-stopped
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    build:
+      context: ./caddy
+      dockerfile: Dockerfile
+    networks:
+      - caddy
+    restart: unless-stopped
   
   minecraft:
     container_name: minecraft
