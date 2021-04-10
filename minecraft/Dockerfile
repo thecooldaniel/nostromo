@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 
 # RUN apk add --no-cache bash
-RUN rm -r /usr/src/bedrock/
+# RUN rm -r /usr/src/bedrock/
 COPY ./bedrock_server /usr/src/bedrock/
 
 WORKDIR /usr/src/bedrock/
